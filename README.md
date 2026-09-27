@@ -52,7 +52,7 @@ Every Flutter version below is planned. The web column says where the same tool 
 
 ### Text Compare
 
-Ready in [web-kit](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/), planned for Flutter: compare two texts or files side by side or in one column; highlight changed words or characters in changed lines; ignore whitespace, case, blank lines and line endings if asked; scroll both sides together, fold unchanged lines and jump between changes; copy a change to the other side (Ctrl+Z undoes it); count added, removed and changed lines and export a unified diff (`compare.patch`) that always applies to Left with `git apply` (with ignore options on, it gives Right apart from the ignored differences); open or drop files, with texts over 1 MB compared off the main thread.
+Ready in [web-kit](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/), planned for Flutter: compare two texts or files side by side or in one column; highlight changed words or characters in changed lines; ignore whitespace, case, blank lines and line endings if asked; scroll both sides together, fold unchanged lines and jump between changes; copy a change to the other side (Ctrl+Z undoes it, except in a side opened from a file with CRLF or CR line breaks, which is replaced as a whole to keep them); count added, removed and changed lines and export a unified diff (`compare.patch`) that always applies to Left with `git apply` (with ignore options on, it gives Right apart from the ignored differences); open or drop files, with texts over 1 MB compared off the main thread.
 
 ### What every tool will have
 
