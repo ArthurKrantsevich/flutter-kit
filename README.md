@@ -20,7 +20,7 @@
 
 `flutter-kit` is a collection of small tools for the web: formatters, converters, generators, a video player and more. Each tool is published as two pub.dev packages: pure Dart logic and a Flutter widget on top of it.
 
-The same tools also exist in React + TypeScript: [web-kit](https://github.com/ArthurKrantsevich/web-kit). Both collections have the same features and a similar look, but they share no code.
+The same tools exist in React + TypeScript: [web-kit](https://github.com/ArthurKrantsevich/web-kit), which already works — [try it live](https://arthurkrantsevich.github.io/web-kit/). flutter-kit follows its features and look, but the two share no code.
 
 **No backend.** All processing happens on the user's device. Files and text never leave the browser.
 
@@ -30,19 +30,33 @@ The same tools also exist in React + TypeScript: [web-kit](https://github.com/Ar
 
 ## Utilities
 
-| Utility | Category | Status |
-|---|---|---|
-| JSON formatter | data | planned |
-| Base64 encode/decode | data | planned |
-| URL encode/decode | data | planned |
-| JWT decoder | data | planned |
-| UUID generator (v4, v7) | generators | planned |
-| Password generator | generators | planned |
-| Hash generator (SHA, MD5) | generators | planned |
-| QR code generator | generators | planned |
-| Color palette generator | generators | planned |
-| Image converter | media | planned |
-| Video player | media | planned |
+Every Flutter version below is planned. The web column says where the same tool stands in [web-kit](https://github.com/ArthurKrantsevich/web-kit).
+
+| Utility | Category | Flutter | Web (web-kit) | What it does |
+|---|---|---|---|---|
+| JSON Formatter | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/json-formatter/) | Format, minify, sort keys, escape and unescape; exact error positions and fixes offered only after they were checked; a tree with search and JSONPath; stats. |
+| JSON Convert | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/json-convert/) | JSON to YAML, CSV, XML and TypeScript, and CSV to JSON, with numbers kept exactly as written. |
+| JSON Diff | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/json-diff/) | Every change with its path and values, arrays by index or by key, a JSON Patch. |
+| JSON Schema Validator | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/json-schema-validator/) | Draft 2020-12, every error with its path in the data and the schema, a schema generated from the data. |
+| Base64 | data | planned | planned | Encode and decode text and files, with correct UTF-8. |
+| URL Encoder | data | planned | planned | Encode and decode URLs and their parts; take a query string apart. |
+| JWT Decoder | data | planned | planned | Header, payload and expiry; the signature is not checked. |
+| Text Compare | data | planned | planned | Compare two texts or files, described below. |
+| UUID Generator | generators | planned | planned | v4 and v7, one or many at a time. |
+| Password Generator | generators | planned | planned | Length and character sets, a secure random source, an entropy estimate. |
+| Hash Generator | generators | planned | planned | SHA-1, SHA-256, SHA-384, SHA-512 and MD5. |
+| QR Code Generator | generators | planned | planned | Text or a link to a QR code, saved as PNG or SVG. |
+| Palette Generator | generators | planned | planned | A palette from one color, with WCAG contrast checks. |
+| Image Converter | media | planned | planned | PNG, JPG and WebP, resizing and quality. |
+| Video Player | media | planned | planned | Speed control, VTT subtitles, keyboard shortcuts, picture-in-picture. |
+
+### Text Compare (planned)
+
+A plan for both collections: compare two texts or files side by side or in one column; highlight differences by line, word and character; ignore whitespace, case, empty lines and line endings if asked; scroll both sides together and jump between changes; move a change to the other side and reset; count added, removed and changed lines and export a unified diff (`.patch`); open or drop files, with large files handled off the main thread.
+
+### What every tool will have
+
+As in web-kit today: open a file or drop it on an input, paste, download the result, load from a URL (straight from the browser, no cookies), a share link that keeps the data after `#`, saving the input in the browser (off by default), keyboard shortcuts with a `?` list, light and dark themes, and the same actions in the same places in every tool.
 
 ## How a package will look
 
