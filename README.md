@@ -20,7 +20,7 @@
 
 `flutter-kit` is a collection of small tools for the web: formatters, converters, generators, a video player and more. Each tool will be published as two pub.dev packages: pure Dart logic and a Flutter widget on top of it.
 
-The same tools are planned in React + TypeScript in [web-kit](https://github.com/ArthurKrantsevich/web-kit), where four of them already work: JSON Formatter, JSON Convert, JSON Diff and JSON Schema Validator — [try them live](https://arthurkrantsevich.github.io/web-kit/). flutter-kit follows its features and look, but the two share no code.
+The same tools are planned in React + TypeScript in [web-kit](https://github.com/ArthurKrantsevich/web-kit), where five of them already work: JSON Formatter, JSON Convert, JSON Diff, JSON Schema Validator and Text Compare — [try them live](https://arthurkrantsevich.github.io/web-kit/). flutter-kit follows its features and look, but the two share no code.
 
 **No backend.** All processing happens on the user's device. Files and text never leave the browser.
 
@@ -41,7 +41,7 @@ Every Flutter version below is planned. The web column says where the same tool 
 | Base64 | data | planned | planned | Encode and decode text and files, with correct UTF-8. |
 | URL Encoder | data | planned | planned | Encode and decode URLs and their parts; take a query string apart. |
 | JWT Decoder | data | planned | planned | Header, payload and expiry; the signature is not checked. |
-| Text Compare | data | planned | planned | Compare two texts or files, described below. |
+| Text Compare | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/) | Compare two texts or files by line, word or character, merge changes, export a patch; described below. |
 | UUID Generator | generators | planned | planned | v4 and v7, one or many at a time. |
 | Password Generator | generators | planned | planned | Length and character sets, a secure random source, an entropy estimate. |
 | Hash Generator | generators | planned | planned | SHA-1, SHA-256, SHA-384, SHA-512 and MD5. |
@@ -50,9 +50,9 @@ Every Flutter version below is planned. The web column says where the same tool 
 | Image Converter | media | planned | planned | PNG, JPG and WebP, resizing and quality. |
 | Video Player | media | planned | planned | Speed control, VTT subtitles, keyboard shortcuts, picture-in-picture. |
 
-### Text Compare (planned)
+### Text Compare
 
-A plan for both collections: compare two texts or files side by side or in one column; highlight differences by line, word and character; ignore whitespace, case, empty lines and line endings if asked; scroll both sides together and jump between changes; move a change to the other side and reset; count added, removed and changed lines and export a unified diff (`.patch`); open or drop files, with large files handled off the main thread.
+Ready in [web-kit](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/), planned for Flutter: compare two texts or files side by side or in one column; highlight changed words or characters in changed lines; ignore whitespace, case, blank lines and line endings if asked; scroll both sides together, fold unchanged lines and jump between changes; copy a change to the other side (Ctrl+Z undoes it); count added, removed and changed lines and export a unified diff (`compare.patch`) that `git apply` accepts; open or drop files, with texts over 1 MB compared off the main thread.
 
 ### What every tool will have
 
