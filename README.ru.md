@@ -18,9 +18,9 @@
 
 ## Что это
 
-`flutter-kit` — набор небольших инструментов для веба: форматтеры, конвертеры, генераторы, видеоплеер и другие. Каждый инструмент публикуется как два пакета на pub.dev: логика на чистом Dart и Flutter-виджет поверх неё.
+`flutter-kit` — набор небольших инструментов для веба: форматтеры, конвертеры, генераторы, видеоплеер и другие. Каждый инструмент будет опубликован как два пакета на pub.dev: логика на чистом Dart и Flutter-виджет поверх неё.
 
-Те же инструменты есть на React + TypeScript: [web-kit](https://github.com/ArthurKrantsevich/web-kit), который уже работает — [демо](https://arthurkrantsevich.github.io/web-kit/). flutter-kit повторяет его функции и внешний вид, но общего кода у наборов нет.
+Те же инструменты запланированы на React + TypeScript в [web-kit](https://github.com/ArthurKrantsevich/web-kit), где четыре из них уже работают: JSON Formatter, JSON Convert, JSON Diff и JSON Schema Validator — [демо](https://arthurkrantsevich.github.io/web-kit/). flutter-kit повторяет его функции и внешний вид, но общего кода у наборов нет.
 
 **Без бэкенда.** Вся обработка идёт на устройстве пользователя. Файлы и текст не покидают браузер.
 
