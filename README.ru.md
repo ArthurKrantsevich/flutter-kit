@@ -20,7 +20,7 @@
 
 `flutter-kit` — набор небольших инструментов для веба: форматтеры, конвертеры, генераторы, видеоплеер и другие. Каждый инструмент будет опубликован как два пакета на pub.dev: логика на чистом Dart и Flutter-виджет поверх неё.
 
-Те же инструменты запланированы на React + TypeScript в [web-kit](https://github.com/ArthurKrantsevich/web-kit), где пять из них уже работают: JSON Formatter, JSON Convert, JSON Diff, JSON Schema Validator и Text Compare — [демо](https://arthurkrantsevich.github.io/web-kit/). flutter-kit повторяет его функции и внешний вид, но общего кода у наборов нет.
+Те же инструменты запланированы на React + TypeScript в [web-kit](https://github.com/ArthurKrantsevich/web-kit), где восемь из них уже работают: JSON Formatter, JSON Convert, JSON Diff, JSON Schema Validator, Text Compare и генераторы UUID, паролей и хэшей — [демо](https://arthurkrantsevich.github.io/web-kit/). flutter-kit повторяет его функции и внешний вид, но общего кода у наборов нет.
 
 **Без бэкенда.** Вся обработка идёт на устройстве пользователя. Файлы и текст не покидают браузер.
 
@@ -42,9 +42,9 @@
 | URL Encoder | data | в планах | в планах | Кодирование и декодирование URL и их частей; разбор query-строки. |
 | JWT Decoder | data | в планах | в планах | Заголовок, payload и срок действия; подпись не проверяется. |
 | Text Compare | data | в планах | [готово](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/) | Сравнение двух текстов или файлов по строкам, словам или символам, перенос изменений, экспорт патча; описано ниже. |
-| UUID Generator | generators | в планах | в планах | v4 и v7, по одному или пачкой. |
-| Password Generator | generators | в планах | в планах | Длина и наборы символов, криптостойкий генератор, оценка энтропии. |
-| Hash Generator | generators | в планах | в планах | SHA-1, SHA-256, SHA-384, SHA-512 и MD5. |
+| UUID Generator | generators | в планах | [готово](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/) | UUID v1, v3, v4, v5, v6 и v7, ULID и NanoID пачкой и разбор любого UUID или ULID; описано ниже. |
+| Password Generator | generators | в планах | [готово](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/) | Пароли, фразы из словаря EFF, произносимые пароли и PIN с точной энтропией; описано ниже. |
+| Hash Generator | generators | в планах | [готово](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/) | MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160 и CRC32 текста или файла, HMAC и сверка контрольной суммы; описано ниже. |
 | QR Code Generator | generators | в планах | в планах | Текст или ссылка в QR-код, сохранение в PNG или SVG. |
 | Palette Generator | generators | в планах | в планах | Палитра от одного цвета с проверкой контраста WCAG. |
 | Image Converter | media | в планах | в планах | PNG, JPG и WebP, изменение размера и качества. |
@@ -53,6 +53,14 @@
 ### Text Compare
 
 Готово в [web-kit](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/), во Flutter в планах: сравнение двух текстов или файлов рядом или одной колонкой; подсветка изменённых слов или символов в изменённых строках; по желанию без учёта пробелов, регистра, пустых строк и концов строк; общая прокрутка, свёрнутые неизменённые строки и переход между изменениями; перенос изменения на другую сторону (Ctrl+Z его отменяет, кроме стороны из файла с концами строк CRLF или CR: она заменяется целиком, чтобы их сохранить); подсчёт добавленных, удалённых и изменённых строк и экспорт unified diff (`compare.patch`), который всегда применяется к Left через `git apply` (с опциями игнора он даёт Right с точностью до игнорируемых различий); открытие и перетаскивание файлов, тексты больше 1 МБ сравниваются вне основного потока.
+
+### Генераторы UUID, паролей и хэшей
+
+Готовы в web-kit, для Flutter в планах:
+
+- [UUID Generator](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/): UUID v4, v7 (строго растущие), v1 и v6 (со случайным узлом, никогда не MAC-адресом), v3 и v5 (пространство имён и имена), Nil и Max, ULID и NanoID, до 1 000 за раз строками или JSON, строчными или прописными, с дефисами или без, в скобках или как URN; Inspect читает версию, variant и время любого UUID или ULID и объясняет, почему ID не читается.
+- [Password Generator](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/): пароли из символов (без похожих и исключённых символов, по одному из каждого выбранного набора без перекоса), фразы из большого словаря EFF, произносимые пароли и PIN без очевидных; точная энтропия, сила и время перебора; пароли никогда не сохраняются, не попадают в ссылки и в консоль.
+- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 и CRC32C текста или файла до 512 МБ (вне основного потока, с прогрессом), hex или Base64, HMAC, Verify для контрольной суммы и `hashes.txt` в формате `sha256sum`; каждый алгоритм проходит свои официальные тестовые векторы.
 
 ### Что будет в каждом инструменте
 

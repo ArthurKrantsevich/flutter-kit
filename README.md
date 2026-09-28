@@ -20,7 +20,7 @@
 
 `flutter-kit` is a collection of small tools for the web: formatters, converters, generators, a video player and more. Each tool will be published as two pub.dev packages: pure Dart logic and a Flutter widget on top of it.
 
-The same tools are planned in React + TypeScript in [web-kit](https://github.com/ArthurKrantsevich/web-kit), where five of them already work: JSON Formatter, JSON Convert, JSON Diff, JSON Schema Validator and Text Compare — [try them live](https://arthurkrantsevich.github.io/web-kit/). flutter-kit follows its features and look, but the two share no code.
+The same tools are planned in React + TypeScript in [web-kit](https://github.com/ArthurKrantsevich/web-kit), where eight of them already work: JSON Formatter, JSON Convert, JSON Diff, JSON Schema Validator, Text Compare and the UUID, Password and Hash generators — [try them live](https://arthurkrantsevich.github.io/web-kit/). flutter-kit follows its features and look, but the two share no code.
 
 **No backend.** All processing happens on the user's device. Files and text never leave the browser.
 
@@ -42,9 +42,9 @@ Every Flutter version below is planned. The web column says where the same tool 
 | URL Encoder | data | planned | planned | Encode and decode URLs and their parts; take a query string apart. |
 | JWT Decoder | data | planned | planned | Header, payload and expiry; the signature is not checked. |
 | Text Compare | data | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/) | Compare two texts or files by line, word or character, merge changes, export a patch; described below. |
-| UUID Generator | generators | planned | planned | v4 and v7, one or many at a time. |
-| Password Generator | generators | planned | planned | Length and character sets, a secure random source, an entropy estimate. |
-| Hash Generator | generators | planned | planned | SHA-1, SHA-256, SHA-384, SHA-512 and MD5. |
+| UUID Generator | generators | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/) | UUID v1, v3, v4, v5, v6 and v7, ULID and NanoID in bulk, and any UUID or ULID taken apart; described below. |
+| Password Generator | generators | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/) | Passwords, EFF passphrases, pronounceable passwords and PINs with their exact entropy; described below. |
+| Hash Generator | generators | planned | [ready](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/) | MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160 and CRC32 of a text or a file, HMAC and a checksum check; described below. |
 | QR Code Generator | generators | planned | planned | Text or a link to a QR code, saved as PNG or SVG. |
 | Palette Generator | generators | planned | planned | A palette from one color, with WCAG contrast checks. |
 | Image Converter | media | planned | planned | PNG, JPG and WebP, resizing and quality. |
@@ -53,6 +53,14 @@ Every Flutter version below is planned. The web column says where the same tool 
 ### Text Compare
 
 Ready in [web-kit](https://arthurkrantsevich.github.io/web-kit/tools/text-compare/), planned for Flutter: compare two texts or files side by side or in one column; highlight changed words or characters in changed lines; ignore whitespace, case, blank lines and line endings if asked; scroll both sides together, fold unchanged lines and jump between changes; copy a change to the other side (Ctrl+Z undoes it, except in a side opened from a file with CRLF or CR line breaks, which is replaced as a whole to keep them); count added, removed and changed lines and export a unified diff (`compare.patch`) that always applies to Left with `git apply` (with ignore options on, it gives Right apart from the ignored differences); open or drop files, with texts over 1 MB compared off the main thread.
+
+### UUID, Password and Hash generators
+
+Ready in web-kit, planned for Flutter:
+
+- [UUID Generator](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/): UUID v4, v7 (strictly increasing), v1 and v6 (with a random node, never a MAC address), v3 and v5 (a namespace and names), Nil and Max, ULID and NanoID, up to 1,000 at a time as lines or JSON, in upper or lower case, with or without hyphens, braces or a URN; Inspect reads the version, variant and time of any UUID or ULID and says why one cannot be read.
+- [Password Generator](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/): passwords of characters (without look-alikes or your exclusions, with one of every chosen set without bias), passphrases from the EFF large wordlist, pronounceable passwords and PINs without obvious ones; the exact entropy, a strength and the time to crack; passwords are never saved, shared or logged.
+- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 and CRC32C of a text or a file up to 512 MB (hashed off the main thread with progress), hex or Base64, HMAC, Verify for a checksum you were given, and `hashes.txt` in `sha256sum` form; every algorithm passes its official test vectors.
 
 ### What every tool will have
 
