@@ -60,7 +60,7 @@ Ready in web-kit, planned for Flutter:
 
 - [UUID Generator](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/): UUID v4, v7 (strictly increasing), v1 and v6 (with a random node, never a MAC address), v3 and v5 (a namespace and names), Nil and Max, ULID and NanoID, up to 1,000 at a time as lines or JSON, in upper or lower case, with or without hyphens, braces or a URN; Inspect reads the version, variant and time of any UUID or ULID and says why one cannot be read.
 - [Password Generator](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/): passwords of characters (without look-alikes or your exclusions, with one of every chosen set without bias), passphrases from the EFF large wordlist, pronounceable passwords and PINs without obvious ones; the exact entropy, a strength and the time to crack; passwords are never saved, shared or logged.
-- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 and CRC32C of a text or a file up to 512 MB (hashed off the main thread with progress), hex or Base64, HMAC, Verify for a checksum you were given, and `hashes.txt` in `sha256sum` form; every algorithm passes its official test vectors.
+- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 and CRC32C of a text or a file up to 512 MB (hashed off the main thread with progress), hex or Base64, HMAC, Verify for a checksum you were given, and `hashes.txt` as BSD tagged lines that `cksum -c` checks; every algorithm passes its official test vectors.
 
 ### What every tool will have
 

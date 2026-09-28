@@ -60,7 +60,7 @@
 
 - [UUID Generator](https://arthurkrantsevich.github.io/web-kit/tools/uuid-generator/): UUID v4, v7 (строго растущие), v1 и v6 (со случайным узлом, никогда не MAC-адресом), v3 и v5 (пространство имён и имена), Nil и Max, ULID и NanoID, до 1 000 за раз строками или JSON, строчными или прописными, с дефисами или без, в скобках или как URN; Inspect читает версию, variant и время любого UUID или ULID и объясняет, почему ID не читается.
 - [Password Generator](https://arthurkrantsevich.github.io/web-kit/tools/password-generator/): пароли из символов (без похожих и исключённых символов, по одному из каждого выбранного набора без перекоса), фразы из большого словаря EFF, произносимые пароли и PIN без очевидных; точная энтропия, сила и время перебора; пароли никогда не сохраняются, не попадают в ссылки и в консоль.
-- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 и CRC32C текста или файла до 512 МБ (вне основного потока, с прогрессом), hex или Base64, HMAC, Verify для контрольной суммы и `hashes.txt` в формате `sha256sum`; каждый алгоритм проходит свои официальные тестовые векторы.
+- [Hash Generator](https://arthurkrantsevich.github.io/web-kit/tools/hash-generator/): MD5, SHA-1, SHA-2, SHA-3, BLAKE2, BLAKE3, RIPEMD-160, CRC32 и CRC32C текста или файла до 512 МБ (вне основного потока, с прогрессом), hex или Base64, HMAC, Verify для контрольной суммы и `hashes.txt` строками BSD с меткой, которые проверяет `cksum -c`; каждый алгоритм проходит свои официальные тестовые векторы.
 
 ### Что будет в каждом инструменте
 
